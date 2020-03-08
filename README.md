@@ -5,7 +5,7 @@ Auto Initial Debian Development Environment
 
 # 1. 脚本说明
 
-脚本名称：PowerMask.sh
+脚本名称：AdaptEnvironmentInit.sh
 
 PowerMask 经过 Debian9.x 统测试，可完美运行。关于衍生系统 UBUNTU 能否正常运行，尚未证实。如想在 CentOS / SUSE / REDHET 系统下运行，请自觉滚开。
 
