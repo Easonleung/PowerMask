@@ -67,12 +67,14 @@ fi
 
 
 
-## =========================================== ##
+################################################
 echo ""
 echo ""
 echo "INSTALL BASE TOOLS"
 echo "========================================="
 echo ""
+################################################
+
 
 
 # ==== INSTALL IFCONFIG ===================== #
@@ -108,6 +110,14 @@ echo "===> Install curl ..."
 echo ""
 echo "$rootpassword" | sudo -S apt-get install curl -y
 
+
+################################################
+echo ""
+echo ""
+echo "INSTALL DEVELOPMENT SOFTWARE"
+echo "========================================="
+echo ""
+################################################
 
 # ==== INSTALL PHP7.3 ======================== #
 echo ""
@@ -179,6 +189,7 @@ echo "$rootpassword" | sudo -S apt-get install nginx -y
 
 
 
+
 # ==== INSTALL NVM ======================== #
 echo ""
 echo "===> Install nvm ..."
@@ -193,25 +204,71 @@ export NVM_DIR="$HOME/.nvm"
 echo ""
 echo "===> Install node.js 12.x ..."
 echo ""
-## nvm install --lts			# Too Slow
+## nvm install --lts		# Too Slow
 ## nvm install 8.16.0		# Too Slow
+curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+echo "$rootpassword" | sudo -S apt-get install nodejs 
 
-#curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
-#echo "$rootpassword" | sudo -S apt-get install nodejs 
-
-echo ""
-echo "===> Install node.js 8.x ..."
-echo ""
+##echo ""
+##echo "===> Install node.js 8.x ..."
+##echo ""
 ##curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
 ##echo "$rootpassword" | sudo -S apt-get install nodejs
 
 
+################################################
+echo ""
+echo ""
+echo "INSTALL ADAPT PLATFORM"
+echo "========================================="
+echo ""
+################################################
+
+
+# ==== INSTALL ADAPT AUTHORING ======================== #
+echo ""
+echo "===> Install Adapt_authoring ..."
+echo ""
+echo "... clone Adapt_authoring ..."
+echo ""
+git clone https://github.com/adaptlearning/adapt_authoring.git
+cd adapt_authoring
+npm install --production && node install
 
 
 
+# ==== INSTALL ADAPT FRAMEWORK ======================== #
+echo ""
+echo "===> Install Adapt_framework ..."
+echo ""
+echo ""
+echo "... clone Adapt_authoring ..."
+echo ""
+git clone https://github.com/adaptlearning/adapt_framework.git
 
+echo "... install grunt ..."
+echo ""
+echo "$rootpassword" | sudo -S apt-get install grunt 
 
+echo ""
+echo "... install cnpm ..."
+echo ""
+echo "$rootpassword" | sudo -S npm install -g cnpm --registry=https://registry.npm.taobao.org 
 
+echo ""
+echo "... install adapt_framework ..."
+echo ""
+cd adapt_framework-master
+cnpm install
+adapt install
+
+echo ""
+echo "... install rub ..."
+echo ""
+echo "$rootpassword" | sudo -S chown -R $USER /usr/lib
+echo "$rootpassword" | sudo -S npm install -g grunt-cli
+echo "$rootpassword" | sudo -S npm install -g rub-cli
+pkexec chown root /usr/lib/sudo/sudoers.so
 
 echo ""
 echo ""
