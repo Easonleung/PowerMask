@@ -180,6 +180,7 @@ echo "... Start&Set MariaDB Server Startup ..."
 echo ""
 echo "$rootpassword" | sudo systemctl start mariadb
 echo "$rootpassword" | sudo systemctl enable mariadb
+echo "$rootpassword" | sudo mysql_secure_installation
 
 
 # ==== INSTALL NGINX ======================== #
