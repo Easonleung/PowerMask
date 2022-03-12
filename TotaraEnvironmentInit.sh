@@ -83,10 +83,10 @@ echo "UPGRADE SYSTEM"
 echo "=========================================="
 echo ""
 echo "ROOT PASSWORD FOR UPDATE SYSTEM"
-su root -c "apt-get update"
+echo "$rootpassword" | apt-get update
 echo ""
 echo "ROOT PASSWORD FOR UPGRADE"
-su root -c "apt-get upgrade -y"
+echo "$rootpassword" | apt-get upgrade -y
 
 
 
