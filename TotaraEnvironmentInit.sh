@@ -143,10 +143,10 @@ echo "... install base tools ..."
 echo ""
 echo "$rootpassword" | sudo -S apt-get -y install apt-transport-https ca-certificates
 
-#echo ""
-#echo "... add sury source ..."
-#echo ""
-#echo "$rootpassword" | sudo -S wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+echo ""
+echo "... add sury source ..."
+echo ""
+echo "$rootpassword" | sudo -S wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 
 echo ""
 echo "... update source ..."
