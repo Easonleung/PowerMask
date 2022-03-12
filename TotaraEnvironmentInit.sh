@@ -71,7 +71,7 @@ echo "$rootpassword" | sudo -S apt-get install git -y
 echo ""
 echo "===> Get Init Files ..."
 echo ""
-echo git clone https://github.com/Easonleung/PowerMask.git
+git clone https://github.com/Easonleung/PowerMask.git
 echo ""
 echo "... Change Source to 163.com Mirror ..."
 echo "$rootpassword" | sudo -S cp PowerMask/sources.list.bullseye /etc/apt/sources.list -y
