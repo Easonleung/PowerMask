@@ -98,13 +98,22 @@ echo "========================================="
 echo ""
 ################################################
 
+# ==== INSTALL UFW ===================== #
+echo ""
+echo "===> Install UFW ..."
+echo ""
+echo "$rootpassword" | sudo -S apt-get install ufw -y  
+ufw allow ssh
+ufw allow http
+ufw allow https
+ufw enable
 
 
 # ==== INSTALL IFCONFIG ===================== #
 echo ""
 echo "===> Install net-tools ..."
 echo ""
-echo "$rootpassword" | sudo -S apt-get install net-tools  
+echo "$rootpassword" | sudo -S apt-get install net-tools -y
 
 
 # ==== INSTALL TREE ======================== #
@@ -157,7 +166,9 @@ echo "$rootpassword" | sudo -S apt-get update
 echo ""
 echo "... Install PHP7.4 ..."
 echo ""
-echo "$rootpassword" | sudo -S apt-get install php7.4 -y
+echo "$rootpassword" | sudo -S apt-get install php7.4 
+echo "$rootpassword" | sudo apt-get install php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip} -y
+echo "$rootpassword" | php7.4-fpm -y
 
 # ==== INSTALL MARIADB ======================== #
 echo ""
@@ -175,6 +186,8 @@ echo "$rootpassword" | sudo systemctl enable mariadb
 echo ""
 echo "===> Install Nginx ..."
 echo ""
+echo "$rootpassword" | sudo systemctl disable --now apache2 -y
+
 echo "$rootpassword" | sudo -S apt-get install nginx -y
 echo "$rootpassword" | sudo -S /etc/init.d/apache2 stop
 echo "$rootpassword" | sudo -S /etc/init.d/nginx start
