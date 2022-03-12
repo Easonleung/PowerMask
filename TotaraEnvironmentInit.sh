@@ -21,18 +21,6 @@ read -p "ROOT PASSWORD FOR GLOBAL:" -s rootpassword
 
 echo""
 
-# ==== UPGRADE DEBIAN 9x ====================== "
-echo ""
-echo "UPGRADE SYSTEM"
-echo "=========================================="
-echo ""
-echo "ROOT PASSWORD FOR UPDATE SYSTEM"
-su root -c "apt-get update"
-echo ""
-echo "ROOT PASSWORD FOR UPGRADE"
-su root -c "apt-get upgrade -y"
-
-
 # ==== INSTALL SUDO ======================== #
 echo ""
 echo "SYSTEM INITIALATION"
@@ -72,6 +60,35 @@ else
 fi
 
 
+# ==== INSTALL GIT ======================== #
+echo ""
+echo "===> Install git ..."
+echo ""
+echo "$rootpassword" | sudo -S apt-get install git -y
+
+
+# ==== Get Init Files ======================== #
+echo ""
+echo "===> Get Init Files ..."
+echo ""
+echo gti clone https://github.com/Easonleung/PowerMask.git
+echo ""
+echo "... Change Source to 163.com Mirror ..."
+echo "$rootpassword" | sudo -S cp PowerMask/sources.list.bullseye /etc/apt/sources.list -y
+
+
+# ==== UPGRADE DEBIAN 11.x ====================== "
+echo ""
+echo "UPGRADE SYSTEM"
+echo "=========================================="
+echo ""
+echo "ROOT PASSWORD FOR UPDATE SYSTEM"
+su root -c "apt-get update"
+echo ""
+echo "ROOT PASSWORD FOR UPGRADE"
+su root -c "apt-get upgrade -y"
+
+
 
 ################################################
 echo ""
@@ -95,14 +112,6 @@ echo ""
 echo "===> Install tree ..."
 echo ""
 echo "$rootpassword" | sudo -S apt-get install tree
-
-
-# ==== INSTALL GIT ======================== #
-echo ""
-echo "===> Install git ..."
-echo ""
-echo "$rootpassword" | sudo -S apt-get install git -y
-
 
 # ==== INSTALL VIM ======================== #
 echo ""
