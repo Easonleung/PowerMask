@@ -176,6 +176,8 @@ echo ""
 echo "===> Install Nginx ..."
 echo ""
 echo "$rootpassword" | sudo -S apt-get install nginx -y
+echo "$rootpassword" | sudo -S /etc/init.d/apache2 stop
+echo "$rootpassword" | sudo -S /etc/init.d/nginx start
 
 
 ################################################
