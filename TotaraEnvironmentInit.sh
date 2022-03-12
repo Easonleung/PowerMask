@@ -187,9 +187,10 @@ echo ""
 echo "===> Install Nginx ..."
 echo ""
 echo "$rootpassword" | sudo systemctl disable --now apache2 -y
+echo "$rootpassword" | sudo -S /etc/init.d/apache2 stop
 
 echo "$rootpassword" | sudo -S apt-get install nginx -y
-echo "$rootpassword" | sudo -S /etc/init.d/apache2 stop
+echo "$rootpassword" | sudo -S cp PowerMask/totara.dev.conf /etc/nginx/conf.d/.
 echo "$rootpassword" | sudo -S /etc/init.d/nginx start
 
 
