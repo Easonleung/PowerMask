@@ -17,7 +17,7 @@ echo "| TOKEN:     NONE                    |"
 echo "+------------------------------------+"
 echo ""
 echo ""
-read -p "ROOT PASSWORD FOR GLOBAL:" -S rootpassword
+read -p "ROOT PASSWORD FOR GLOBAL:" -s rootpassword
 
 echo""
 
