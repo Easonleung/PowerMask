@@ -1,32 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Easonleung 
-Easonleung
-/
-PowerMask
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-PowerMask/AdaptEnvironmentInit.sh
-@Easonleung
-Easonleung Update Description
-Latest commit 6765407 on Mar 9, 2020
- History
- 1 contributor
-283 lines (223 sloc)  6.74 KB
-   
 #!/bin/bash
 
 echo ""
@@ -223,16 +194,4 @@ echo ""
 echo "Enjoy Ur Platform."
 echo ""
 echo "THE END."
-© 2022 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete
+
