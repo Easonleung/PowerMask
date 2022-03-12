@@ -17,7 +17,7 @@ echo "| TOKEN:     NONE                    |"
 echo "+------------------------------------+"
 echo ""
 echo ""
-read -p "ROOT PASSWORD FOR GLOBAL:" -s rootpassword
+read -p "ROOT PASSWORD FOR GLOBAL:" -S rootpassword
 
 echo""
 
@@ -29,7 +29,7 @@ echo ""
 echo "#===> Install sudo ..."
 echo ""
 echo "ROOT PASSWORD FOR INSTALL SUDO"
-su root -c "apt-get install sudo -y" 
+echo "$rootpassword" | su root -c "apt-get install sudo -y" 
 
 dir="/etc/sudoers.d/"
 filename=${USER}
@@ -39,24 +39,24 @@ if [ ! -d "$dir" ]; then
     
     echo ""
     echo "ROOT PASSWORD FOR MKDIR SUDOERS.D"
-    su root -c "mkdir $dir"
+    echo "$rootpassword" | su root -c "mkdir $dir"
     
     echo ""
     echo "ROOT PASSWORD FOR MKFILE YOURNAME"
-    su root -c "touch \"$dir$filename\""    
+    echo "$rootpassword" | su root -c "touch \"$dir$filename\""    
     
     echo ""
     echo "AGAIN..."
-    su root -c "echo \"$content\" > \"$dir$filename\""
+    echo "$rootpassword" | su root -c "echo \"$content\" > \"$dir$filename\""
 else
     
     echo ""
     echo "AGAIN"
-    su root -c "touch \"$dir$filename\""
+    echo "$rootpassword" | su root -c "touch \"$dir$filename\""
     
     echo ""
     echo "AND AGAIN..."
-    su root -c "echo \"$content\" > \"$dir$filename\""
+    echo "$rootpassword" | su root -c "echo \"$content\" > \"$dir$filename\""
 fi
 
 
@@ -71,7 +71,7 @@ echo "$rootpassword" | sudo -S apt-get install git -y
 echo ""
 echo "===> Get Init Files ..."
 echo ""
-echo gti clone https://github.com/Easonleung/PowerMask.git
+echo git clone https://github.com/Easonleung/PowerMask.git
 echo ""
 echo "... Change Source to 163.com Mirror ..."
 echo "$rootpassword" | sudo -S cp PowerMask/sources.list.bullseye /etc/apt/sources.list -y
