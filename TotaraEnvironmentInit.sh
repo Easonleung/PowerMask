@@ -207,9 +207,10 @@ echo ""
 
 # ==== INSTALL TOTARA ======================== #
 echo ""
-echo "===> Install Adapt_authoring ..."
+echo "===> Setting Totara Location ..."
 echo ""
-echo "... clone Adapt_authoring ..."
+echo "$rootpassword" | sudo mkdir /var/www/html/totara15
+echo "$rootpassword" | sudo mkdir /var/www/html/totara13
 echo ""
 
 
