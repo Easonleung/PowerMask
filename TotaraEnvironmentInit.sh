@@ -211,6 +211,8 @@ echo "===> Setting Totara Location ..."
 echo ""
 echo "$rootpassword" | sudo mkdir /var/www/html/totara15
 echo "$rootpassword" | sudo mkdir /var/www/html/totara13
+echo "$rootpassword" | sudo -S cp PowerMask/phpinfo.php /var/www/html/totara15/phpinfo.php
+echo "$rootpassword" | sudo -S cp PowerMask/phpinfo.php /var/www/html/totara13/phpinfo.php
 echo ""
 
 
