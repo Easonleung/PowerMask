@@ -168,7 +168,7 @@ echo "... Install PHP7.4 ..."
 echo ""
 echo "$rootpassword" | sudo -S apt-get install php7.4 
 echo "$rootpassword" | sudo apt-get install php7.4-{bcmath,bz2,intl,gd,mbstring,mysql,zip} -y
-echo "$rootpassword" | php7.4-fpm -y
+echo "$rootpassword" | sudo systemctl start php7.4-fpm
 
 # ==== INSTALL MARIADB ======================== #
 echo ""
@@ -193,6 +193,7 @@ echo "$rootpassword" | sudo -S /etc/init.d/apache2 stop
 echo "$rootpassword" | sudo -S apt-get install nginx -y
 echo "$rootpassword" | sudo -S cp PowerMask/totara.dev.conf /etc/nginx/conf.d/.
 echo "$rootpassword" | sudo -S /etc/init.d/nginx start
+echo "$rootpassword" | sudo systemctl start nginx
 
 
 ################################################
