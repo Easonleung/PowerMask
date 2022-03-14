@@ -103,10 +103,10 @@ echo ""
 echo "===> Install UFW ..."
 echo ""
 echo "$rootpassword" | sudo -S apt-get install ufw -y  
-ufw allow ssh
-ufw allow http
-ufw allow https
-ufw enable
+echo "$rootpassword" | sudo ufw allow ssh
+echo "$rootpassword" | sudo ufw allow http
+echo "$rootpassword" | sudo ufw allow https
+echo "$rootpassword" | sudo ufw enable
 
 
 # ==== INSTALL IFCONFIG ===================== #
