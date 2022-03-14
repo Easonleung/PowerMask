@@ -148,17 +148,17 @@ echo ""
 echo "===> Install PHP7.4 ..."
 echo ""
 echo ""
-echo "... install base tools ..."
+echo "... Get ca-certificates ..."
 echo ""
 echo "$rootpassword" | sudo -S apt-get -y install apt-transport-https ca-certificates
 
 echo ""
-echo "... add sury source ..."
+echo "... Get PHP.GPG ..."
 echo ""
 echo "$rootpassword" | sudo -S wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
 
 echo ""
-echo "... update source ..."
+echo "... Update Source ..."
 echo ""
 echo "$rootpassword" | sudo -S sh -c 'echo "deb https://packages.sury.org/php/ bullseye main" > /etc/apt/sources.list.d/php.list'
 echo "$rootpassword" | sudo -S apt-get update
