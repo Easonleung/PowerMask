@@ -71,6 +71,7 @@ echo "$rootpassword" | sudo -S apt-get install git -y
 echo ""
 echo "===> Get Init Files ..."
 echo ""
+git config --global http.sslVerify false
 git clone https://github.com/Easonleung/PowerMask.git
 echo ""
 echo "... Change Source to 163.com Mirror ..."
