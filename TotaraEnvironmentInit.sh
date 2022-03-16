@@ -168,7 +168,7 @@ echo ""
 echo "... Install PHP7.4 ..."
 echo ""
 echo "$rootpassword" | sudo -S apt-get install php7.4 
-echo "$rootpassword" | sudo apt-get install php7.4-{bcmath,bz2,curl,intl,gd,mbstring,mysql,zip,fpm} -y
+echo "$rootpassword" | sudo apt-get install php7.4-{bcmath,bz2,curl,intl,gd,mbstring,mysql,zip,fpm,xmlrpc} -y
 echo "$rootpassword" | sudo systemctl start php7.4-fpm
 
 # ==== INSTALL MARIADB ======================== #
